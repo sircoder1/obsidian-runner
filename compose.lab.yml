@@ -1,3 +1,5 @@
+name: obsidian-runner
+
 services:
   ssh-lab:
     build:
