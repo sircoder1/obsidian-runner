@@ -1,0 +1,42 @@
+{
+  "id": "06-cat",
+  "categoryId": "files",
+  "order": 4,
+  "title": "Read a File",
+  "situation": "Print the complete contents of a supplied text file.",
+  "description": "Print the complete contents of a supplied text file.",
+  "command": {
+    "template": "python3 script.py <command> [arguments]",
+    "format": "python3 script.py cat <filepath>",
+    "parameters": [
+      {
+        "name": "filepath",
+        "value": "$LAB_CHALLENGE_DIR/briefing.txt",
+        "description": "Instructor-provided text file."
+      }
+    ]
+  },
+  "expectedOutput": "Both lines from briefing.txt.",
+  "runner": {
+    "executable": "python3",
+    "args": [
+      "script.py",
+      "cat",
+      "{challenge}/briefing.txt"
+    ],
+    "installRequirements": false,
+    "prepare": null,
+    "outputSeeds": []
+  },
+  "environmentNotes": [],
+  "resources": [
+    {
+      "title": "W3Schools: Python File Handling",
+      "url": "https://www.w3schools.com/python/python_file_handling.asp"
+    },
+    {
+      "title": "Python docs: pathlib",
+      "url": "https://docs.python.org/3/library/pathlib.html"
+    }
+  ]
+}

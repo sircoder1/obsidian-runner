@@ -1,0 +1,35 @@
+{
+  "id": "20-mounts",
+  "categoryId": "system",
+  "order": 10,
+  "title": "Mounted Filesystems",
+  "situation": "List mounted filesystems or logical drives.",
+  "description": "List mounted filesystems or logical drives.",
+  "command": {
+    "template": "python3 script.py <command> [arguments]",
+    "format": "python3 script.py mounts",
+    "parameters": []
+  },
+  "expectedOutput": "Mount point, device, filesystem type, and usage when available.",
+  "runner": {
+    "executable": "python3",
+    "args": [
+      "script.py",
+      "mounts"
+    ],
+    "installRequirements": false,
+    "prepare": null,
+    "outputSeeds": []
+  },
+  "environmentNotes": [],
+  "resources": [
+    {
+      "title": "psutil documentation",
+      "url": "https://psutil.io/"
+    },
+    {
+      "title": "Python docs: os",
+      "url": "https://docs.python.org/3/library/os.html"
+    }
+  ]
+}

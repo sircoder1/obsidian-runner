@@ -1,0 +1,48 @@
+{
+  "id": "09-grep",
+  "categoryId": "files",
+  "order": 7,
+  "title": "Regex Search",
+  "situation": "Show every matching line and its line number in a text file.",
+  "description": "Show every matching line and its line number in a text file.",
+  "command": {
+    "template": "python3 script.py <command> [arguments]",
+    "format": "python3 script.py grep <filename> <regex>",
+    "parameters": [
+      {
+        "name": "filename",
+        "value": "$LAB_CHALLENGE_DIR/events.log",
+        "description": "Log file to search."
+      },
+      {
+        "name": "regex",
+        "value": "ERROR|WARN",
+        "description": "Regular expression."
+      }
+    ]
+  },
+  "expectedOutput": "Lines 2 and 4 with their line numbers.",
+  "runner": {
+    "executable": "python3",
+    "args": [
+      "script.py",
+      "grep",
+      "{challenge}/events.log",
+      "ERROR|WARN"
+    ],
+    "installRequirements": false,
+    "prepare": null,
+    "outputSeeds": []
+  },
+  "environmentNotes": [],
+  "resources": [
+    {
+      "title": "W3Schools: Python RegEx",
+      "url": "https://www.w3schools.com/python/python_regex.asp"
+    },
+    {
+      "title": "Python docs: re",
+      "url": "https://docs.python.org/3/library/re.html"
+    }
+  ]
+}

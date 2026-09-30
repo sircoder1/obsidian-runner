@@ -1,0 +1,42 @@
+{
+  "id": "31-exec",
+  "categoryId": "operations",
+  "order": 1,
+  "title": "Platform Command",
+  "situation": "Run a simple platform command through Bash on Linux or PowerShell on Windows.",
+  "description": "Run a simple platform command through Bash on Linux or PowerShell on Windows.",
+  "command": {
+    "template": "python3 script.py <command> [arguments]",
+    "format": "python3 script.py exec <command>",
+    "parameters": [
+      {
+        "name": "command",
+        "value": "printf 'runner-ok\\n'",
+        "description": "Non-interactive lab command."
+      }
+    ]
+  },
+  "expectedOutput": "runner-ok",
+  "runner": {
+    "executable": "python3",
+    "args": [
+      "script.py",
+      "exec",
+      "printf 'runner-ok\\n'"
+    ],
+    "installRequirements": false,
+    "prepare": null,
+    "outputSeeds": []
+  },
+  "environmentNotes": [],
+  "resources": [
+    {
+      "title": "Python docs: subprocess",
+      "url": "https://docs.python.org/3/library/subprocess.html"
+    },
+    {
+      "title": "W3Schools: Python Try/Except",
+      "url": "https://www.w3schools.com/python/python_try_except.asp"
+    }
+  ]
+}

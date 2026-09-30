@@ -1,0 +1,21 @@
+[Unit]
+Description=Obsidian Runner classroom service
+After=network-online.target docker.service
+Wants=network-online.target docker.service
+
+[Service]
+Type=simple
+User=obsidian-runner
+Group=obsidian-runner
+WorkingDirectory=/opt/obsidian-runner
+EnvironmentFile=/etc/obsidian-runner.env
+ExecStart=/usr/bin/node server/index.js
+Restart=on-failure
+RestartSec=3
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ReadWritePaths=/opt/obsidian-runner/data /opt/obsidian-runner/work
+
+[Install]
+WantedBy=multi-user.target

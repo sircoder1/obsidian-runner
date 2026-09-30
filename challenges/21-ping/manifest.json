@@ -1,0 +1,45 @@
+{
+  "id": "21-ping",
+  "categoryId": "network",
+  "order": 1,
+  "title": "Reachability",
+  "situation": "Check whether the loopback target responds to a single platform-native ping.",
+  "description": "Check whether the loopback target responds to a single platform-native ping.",
+  "command": {
+    "template": "python3 script.py <command> [arguments]",
+    "format": "python3 script.py ping <IP>",
+    "parameters": [
+      {
+        "name": "IP",
+        "value": "127.0.0.1",
+        "description": "Runner loopback address."
+      }
+    ]
+  },
+  "expectedOutput": "An online/offline result for 127.0.0.1.",
+  "runner": {
+    "executable": "python3",
+    "args": [
+      "script.py",
+      "ping",
+      "127.0.0.1"
+    ],
+    "installRequirements": false,
+    "capabilities": [
+      "NET_RAW"
+    ],
+    "prepare": null,
+    "outputSeeds": []
+  },
+  "environmentNotes": [],
+  "resources": [
+    {
+      "title": "Python docs: subprocess",
+      "url": "https://docs.python.org/3/library/subprocess.html"
+    },
+    {
+      "title": "W3Schools: Python Try/Except",
+      "url": "https://www.w3schools.com/python/python_try_except.asp"
+    }
+  ]
+}

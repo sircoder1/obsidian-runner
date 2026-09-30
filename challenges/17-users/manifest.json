@@ -1,0 +1,35 @@
+{
+  "id": "17-users",
+  "categoryId": "system",
+  "order": 7,
+  "title": "Local Users",
+  "situation": "List the local user accounts known to the operating system.",
+  "description": "List the local user accounts known to the operating system.",
+  "command": {
+    "template": "python3 script.py <command> [arguments]",
+    "format": "python3 script.py users",
+    "parameters": []
+  },
+  "expectedOutput": "Usernames and account metadata available on the platform.",
+  "runner": {
+    "executable": "python3",
+    "args": [
+      "script.py",
+      "users"
+    ],
+    "installRequirements": false,
+    "prepare": null,
+    "outputSeeds": []
+  },
+  "environmentNotes": [],
+  "resources": [
+    {
+      "title": "Python docs: pwd",
+      "url": "https://docs.python.org/3/library/pwd.html"
+    },
+    {
+      "title": "W3Schools: Python For Loops",
+      "url": "https://www.w3schools.com/python/python_for_loops.asp"
+    }
+  ]
+}

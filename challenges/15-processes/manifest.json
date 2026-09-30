@@ -1,0 +1,35 @@
+{
+  "id": "15-processes",
+  "categoryId": "system",
+  "order": 5,
+  "title": "Process Inventory",
+  "situation": "List running processes with stable fields suitable for later filtering.",
+  "description": "List running processes with stable fields suitable for later filtering.",
+  "command": {
+    "template": "python3 script.py <command> [arguments]",
+    "format": "python3 script.py processes",
+    "parameters": []
+  },
+  "expectedOutput": "PID, user, process name, and command where available.",
+  "runner": {
+    "executable": "python3",
+    "args": [
+      "script.py",
+      "processes"
+    ],
+    "installRequirements": false,
+    "prepare": null,
+    "outputSeeds": []
+  },
+  "environmentNotes": [],
+  "resources": [
+    {
+      "title": "psutil documentation",
+      "url": "https://psutil.io/"
+    },
+    {
+      "title": "Python docs: subprocess",
+      "url": "https://docs.python.org/3/library/subprocess.html"
+    }
+  ]
+}

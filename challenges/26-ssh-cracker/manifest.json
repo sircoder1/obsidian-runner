@@ -1,0 +1,50 @@
+{
+  "id": "26-ssh-cracker",
+  "categoryId": "network",
+  "order": 6,
+  "title": "SSH Password Audit",
+  "situation": "Try the supplied classroom wordlist against the dedicated lab SSH account.",
+  "description": "Try the supplied classroom wordlist against the dedicated lab SSH account.",
+  "command": {
+    "template": "python3 script.py <command> [arguments]",
+    "format": "python3 script.py sshCracker <user:IP:port> <passwordFile>",
+    "parameters": [
+      {
+        "name": "user:IP:port",
+        "value": "student:<lab-host>:<lab-port>",
+        "description": "Dedicated lab-only SSH service supplied by the runner."
+      },
+      {
+        "name": "passwordFile",
+        "value": "$LAB_CHALLENGE_DIR/passwords.txt",
+        "description": "Small instructor wordlist."
+      }
+    ]
+  },
+  "expectedOutput": "The accepted lab password or a clear not-found result.",
+  "runner": {
+    "executable": "python3",
+    "args": [
+      "script.py",
+      "sshCracker",
+      "{sshTarget}",
+      "{challenge}/passwords.txt"
+    ],
+    "installRequirements": false,
+    "prepare": null,
+    "outputSeeds": []
+  },
+  "environmentNotes": [
+    "Docker mode supplies the isolated ssh-lab service; local mode uses 127.0.0.1:2222."
+  ],
+  "resources": [
+    {
+      "title": "Paramiko: SSHClient API",
+      "url": "https://docs.paramiko.org/en/stable/api/client.html"
+    },
+    {
+      "title": "W3Schools: Python File Handling",
+      "url": "https://www.w3schools.com/python/python_file_handling.asp"
+    }
+  ]
+}

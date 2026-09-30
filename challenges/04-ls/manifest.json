@@ -1,0 +1,42 @@
+{
+  "id": "04-ls",
+  "categoryId": "files",
+  "order": 2,
+  "title": "Directory Listing",
+  "situation": "List a supplied folder while supporting the current directory as the default.",
+  "description": "List a supplied folder while supporting the current directory as the default.",
+  "command": {
+    "template": "python3 script.py <command> [arguments]",
+    "format": "python3 script.py ls <filepath>",
+    "parameters": [
+      {
+        "name": "filepath",
+        "value": "Challenge folder",
+        "description": "Defaults to the current directory."
+      }
+    ]
+  },
+  "expectedOutput": "Entries in the supplied challenge folder.",
+  "runner": {
+    "executable": "python3",
+    "args": [
+      "script.py",
+      "ls",
+      "{challenge}"
+    ],
+    "installRequirements": false,
+    "prepare": null,
+    "outputSeeds": []
+  },
+  "environmentNotes": [],
+  "resources": [
+    {
+      "title": "Python docs: pathlib",
+      "url": "https://docs.python.org/3/library/pathlib.html"
+    },
+    {
+      "title": "W3Schools: Python For Loops",
+      "url": "https://www.w3schools.com/python/python_for_loops.asp"
+    }
+  ]
+}

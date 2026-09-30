@@ -1,0 +1,35 @@
+{
+  "id": "02-commands",
+  "categoryId": "foundations",
+  "order": 2,
+  "title": "Command Reference",
+  "situation": "Make the tool describe every available command, its arguments, usage, and expected output.",
+  "description": "Make the tool describe every available command, its arguments, usage, and expected output.",
+  "command": {
+    "template": "python3 script.py <command> [arguments]",
+    "format": "python3 script.py commands",
+    "parameters": []
+  },
+  "expectedOutput": "A readable table containing every registered command.",
+  "runner": {
+    "executable": "python3",
+    "args": [
+      "script.py",
+      "commands"
+    ],
+    "installRequirements": false,
+    "prepare": null,
+    "outputSeeds": []
+  },
+  "environmentNotes": [],
+  "resources": [
+    {
+      "title": "Python docs: argparse",
+      "url": "https://docs.python.org/3/library/argparse.html"
+    },
+    {
+      "title": "W3Schools: Python Dictionaries",
+      "url": "https://www.w3schools.com/python/python_dictionaries.asp"
+    }
+  ]
+}

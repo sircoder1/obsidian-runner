@@ -1,0 +1,42 @@
+{
+  "id": "27-hash-text",
+  "categoryId": "data",
+  "order": 1,
+  "title": "Hash Text",
+  "situation": "Calculate a SHA-256 digest for a supplied string.",
+  "description": "Calculate a SHA-256 digest for a supplied string.",
+  "command": {
+    "template": "python3 script.py <command> [arguments]",
+    "format": "python3 script.py hashText <text>",
+    "parameters": [
+      {
+        "name": "text",
+        "value": "obsidian runner",
+        "description": "Text to hash."
+      }
+    ]
+  },
+  "expectedOutput": "A SHA-256 hexadecimal digest.",
+  "runner": {
+    "executable": "python3",
+    "args": [
+      "script.py",
+      "hashText",
+      "obsidian runner"
+    ],
+    "installRequirements": false,
+    "prepare": null,
+    "outputSeeds": []
+  },
+  "environmentNotes": [],
+  "resources": [
+    {
+      "title": "Python docs: hashlib",
+      "url": "https://docs.python.org/3/library/hashlib.html"
+    },
+    {
+      "title": "W3Schools: Python Functions",
+      "url": "https://www.w3schools.com/python/python_functions.asp"
+    }
+  ]
+}

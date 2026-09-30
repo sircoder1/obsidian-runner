@@ -1,0 +1,37 @@
+{
+  "id": "32-screenshot",
+  "categoryId": "operations",
+  "order": 2,
+  "title": "Screenshot Collection",
+  "situation": "Capture the current desktop and save it beneath the published output folder.",
+  "description": "Capture the current desktop and save it beneath the published output folder.",
+  "command": {
+    "template": "python3 script.py <command> [arguments]",
+    "format": "python3 script.py screenshot",
+    "parameters": []
+  },
+  "expectedOutput": "A screenshot path and image artifact in the output folder.",
+  "runner": {
+    "executable": "python3",
+    "args": [
+      "script.py",
+      "screenshot"
+    ],
+    "installRequirements": false,
+    "prepare": "virtual-display",
+    "outputSeeds": []
+  },
+  "environmentNotes": [
+    "Docker mode creates a disposable virtual display for this job."
+  ],
+  "resources": [
+    {
+      "title": "Pillow: ImageGrab",
+      "url": "https://pillow.readthedocs.io/en/stable/reference/ImageGrab.html"
+    },
+    {
+      "title": "Python docs: pathlib",
+      "url": "https://docs.python.org/3/library/pathlib.html"
+    }
+  ]
+}

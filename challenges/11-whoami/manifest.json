@@ -1,0 +1,35 @@
+{
+  "id": "11-whoami",
+  "categoryId": "system",
+  "order": 1,
+  "title": "Current Identity",
+  "situation": "Print the account running the student tool.",
+  "description": "Print the account running the student tool.",
+  "command": {
+    "template": "python3 script.py <command> [arguments]",
+    "format": "python3 script.py whoami",
+    "parameters": []
+  },
+  "expectedOutput": "The runner account name.",
+  "runner": {
+    "executable": "python3",
+    "args": [
+      "script.py",
+      "whoami"
+    ],
+    "installRequirements": false,
+    "prepare": null,
+    "outputSeeds": []
+  },
+  "environmentNotes": [],
+  "resources": [
+    {
+      "title": "Python docs: getpass.getuser()",
+      "url": "https://docs.python.org/3/library/getpass.html#getpass.getuser"
+    },
+    {
+      "title": "Python docs: os",
+      "url": "https://docs.python.org/3/library/os.html"
+    }
+  ]
+}

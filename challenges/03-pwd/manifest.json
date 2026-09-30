@@ -1,0 +1,35 @@
+{
+  "id": "03-pwd",
+  "categoryId": "files",
+  "order": 1,
+  "title": "Working Directory",
+  "situation": "Report the directory from which the tool is currently running.",
+  "description": "Report the directory from which the tool is currently running.",
+  "command": {
+    "template": "python3 script.py <command> [arguments]",
+    "format": "python3 script.py pwd",
+    "parameters": []
+  },
+  "expectedOutput": "An absolute filesystem path.",
+  "runner": {
+    "executable": "python3",
+    "args": [
+      "script.py",
+      "pwd"
+    ],
+    "installRequirements": false,
+    "prepare": null,
+    "outputSeeds": []
+  },
+  "environmentNotes": [],
+  "resources": [
+    {
+      "title": "Python docs: pathlib",
+      "url": "https://docs.python.org/3/library/pathlib.html"
+    },
+    {
+      "title": "Python docs: os",
+      "url": "https://docs.python.org/3/library/os.html"
+    }
+  ]
+}

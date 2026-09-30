@@ -1,0 +1,42 @@
+{
+  "id": "10-permissions",
+  "categoryId": "files",
+  "order": 8,
+  "title": "File Permissions",
+  "situation": "Display the mode and ownership details of an instructor-provided file.",
+  "description": "Display the mode and ownership details of an instructor-provided file.",
+  "command": {
+    "template": "python3 script.py <command> [arguments]",
+    "format": "python3 script.py permissions <file>",
+    "parameters": [
+      {
+        "name": "file",
+        "value": "$LAB_CHALLENGE_DIR/briefing.txt",
+        "description": "File to inspect."
+      }
+    ]
+  },
+  "expectedOutput": "Path, numeric mode, symbolic mode, owner, and group when available.",
+  "runner": {
+    "executable": "python3",
+    "args": [
+      "script.py",
+      "permissions",
+      "{challenge}/briefing.txt"
+    ],
+    "installRequirements": false,
+    "prepare": null,
+    "outputSeeds": []
+  },
+  "environmentNotes": [],
+  "resources": [
+    {
+      "title": "Python docs: stat",
+      "url": "https://docs.python.org/3/library/stat.html"
+    },
+    {
+      "title": "Python docs: pathlib",
+      "url": "https://docs.python.org/3/library/pathlib.html"
+    }
+  ]
+}

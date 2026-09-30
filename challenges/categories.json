@@ -1,0 +1,38 @@
+[
+  {
+    "id": "foundations",
+    "title": "Foundations",
+    "description": "CLI structure, discovery, and the first command.",
+    "order": 1
+  },
+  {
+    "id": "files",
+    "title": "Files",
+    "description": "Navigate, create, read, remove, search, and inspect files.",
+    "order": 2
+  },
+  {
+    "id": "system",
+    "title": "System",
+    "description": "Enumerate identity, processes, accounts, environment, and storage.",
+    "order": 3
+  },
+  {
+    "id": "network",
+    "title": "Network",
+    "description": "Test reachability, services, sockets, downloads, and SSH authentication.",
+    "order": 4
+  },
+  {
+    "id": "data",
+    "title": "Data",
+    "description": "Hash content, recover MD5 test values, and query SQLite.",
+    "order": 5
+  },
+  {
+    "id": "operations",
+    "title": "Operations",
+    "description": "Execute platform commands and collect screenshots.",
+    "order": 6
+  }
+]

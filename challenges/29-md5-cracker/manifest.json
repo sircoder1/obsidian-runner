@@ -1,0 +1,48 @@
+{
+  "id": "29-md5-cracker",
+  "categoryId": "data",
+  "order": 3,
+  "title": "MD5 Wordlist Recovery",
+  "situation": "Recover the classroom test value using the supplied MD5 hash and small wordlist.",
+  "description": "Recover the classroom test value using the supplied MD5 hash and small wordlist.",
+  "command": {
+    "template": "python3 script.py <command> [arguments]",
+    "format": "python3 script.py md5HashCracker <hashFilePath> <wordlistFilePath>",
+    "parameters": [
+      {
+        "name": "hashFilePath",
+        "value": "$LAB_CHALLENGE_DIR/hashes.txt",
+        "description": "Instructor-provided MD5 digest."
+      },
+      {
+        "name": "wordlistFilePath",
+        "value": "$LAB_CHALLENGE_DIR/wordlist.txt",
+        "description": "Small classroom wordlist."
+      }
+    ]
+  },
+  "expectedOutput": "The recovered test value goldenkey.",
+  "runner": {
+    "executable": "python3",
+    "args": [
+      "script.py",
+      "md5HashCracker",
+      "{challenge}/hashes.txt",
+      "{challenge}/wordlist.txt"
+    ],
+    "installRequirements": false,
+    "prepare": null,
+    "outputSeeds": []
+  },
+  "environmentNotes": [],
+  "resources": [
+    {
+      "title": "Python docs: hashlib",
+      "url": "https://docs.python.org/3/library/hashlib.html"
+    },
+    {
+      "title": "W3Schools: Python For Loops",
+      "url": "https://www.w3schools.com/python/python_for_loops.asp"
+    }
+  ]
+}

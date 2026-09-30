@@ -1,0 +1,44 @@
+{
+  "id": "07-del",
+  "categoryId": "files",
+  "order": 5,
+  "title": "Delete a File",
+  "situation": "Delete the disposable file placed in the output folder for this run.",
+  "description": "Delete the disposable file placed in the output folder for this run.",
+  "command": {
+    "template": "python3 script.py <command> [arguments]",
+    "format": "python3 script.py del <filepath>",
+    "parameters": [
+      {
+        "name": "filepath",
+        "value": "$LAB_OUTPUT/delete-me.txt",
+        "description": "Disposable seeded output file."
+      }
+    ]
+  },
+  "expectedOutput": "A deletion confirmation; delete-me.txt should no longer be listed.",
+  "runner": {
+    "executable": "python3",
+    "args": [
+      "script.py",
+      "del",
+      "{output}/delete-me.txt"
+    ],
+    "installRequirements": false,
+    "prepare": null,
+    "outputSeeds": [
+      "delete-me.txt"
+    ]
+  },
+  "environmentNotes": [],
+  "resources": [
+    {
+      "title": "W3Schools: Python File Remove",
+      "url": "https://www.w3schools.com/python/python_file_remove.asp"
+    },
+    {
+      "title": "Python docs: pathlib",
+      "url": "https://docs.python.org/3/library/pathlib.html"
+    }
+  ]
+}

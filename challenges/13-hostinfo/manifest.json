@@ -1,0 +1,35 @@
+{
+  "id": "13-hostinfo",
+  "categoryId": "system",
+  "order": 3,
+  "title": "Host Information",
+  "situation": "Collect a concise operating-system, architecture, runtime, CPU, and memory summary.",
+  "description": "Collect a concise operating-system, architecture, runtime, CPU, and memory summary.",
+  "command": {
+    "template": "python3 script.py <command> [arguments]",
+    "format": "python3 script.py hostinfo",
+    "parameters": []
+  },
+  "expectedOutput": "Structured host and Python runtime information.",
+  "runner": {
+    "executable": "python3",
+    "args": [
+      "script.py",
+      "hostinfo"
+    ],
+    "installRequirements": false,
+    "prepare": null,
+    "outputSeeds": []
+  },
+  "environmentNotes": [],
+  "resources": [
+    {
+      "title": "Python docs: platform",
+      "url": "https://docs.python.org/3/library/platform.html"
+    },
+    {
+      "title": "psutil documentation",
+      "url": "https://psutil.io/"
+    }
+  ]
+}

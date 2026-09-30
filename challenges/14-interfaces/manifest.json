@@ -1,0 +1,35 @@
+{
+  "id": "14-interfaces",
+  "categoryId": "system",
+  "order": 4,
+  "title": "Network Interfaces",
+  "situation": "List local network interfaces and their assigned addresses.",
+  "description": "List local network interfaces and their assigned addresses.",
+  "command": {
+    "template": "python3 script.py <command> [arguments]",
+    "format": "python3 script.py interfaces",
+    "parameters": []
+  },
+  "expectedOutput": "Interface names with IPv4/IPv6 addresses.",
+  "runner": {
+    "executable": "python3",
+    "args": [
+      "script.py",
+      "interfaces"
+    ],
+    "installRequirements": false,
+    "prepare": null,
+    "outputSeeds": []
+  },
+  "environmentNotes": [],
+  "resources": [
+    {
+      "title": "psutil documentation",
+      "url": "https://psutil.io/"
+    },
+    {
+      "title": "Python docs: socket",
+      "url": "https://docs.python.org/3/library/socket.html"
+    }
+  ]
+}

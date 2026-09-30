@@ -1,0 +1,27 @@
+services:
+  ssh-lab:
+    build:
+      context: .
+      dockerfile: docker/ssh-lab/Dockerfile
+    container_name: obsidian-ssh-lab
+    hostname: ssh-lab
+    restart: unless-stopped
+    networks:
+      - obsidian-lab
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    cap_add:
+      - SETGID
+      - SETUID
+      - CHOWN
+      - DAC_OVERRIDE
+      - SYS_CHROOT
+    mem_limit: 128m
+    pids_limit: 64
+
+networks:
+  obsidian-lab:
+    name: obsidian-lab
+    internal: true

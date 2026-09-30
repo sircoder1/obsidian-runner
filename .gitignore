@@ -1,0 +1,9 @@
+node_modules/
+.env
+data/state.json
+work/jobs/
+work/qa-*/
+npm-debug.log*
+__pycache__/
+*.py[cod]
+.DS_Store

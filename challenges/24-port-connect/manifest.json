@@ -1,0 +1,42 @@
+{
+  "id": "24-port-connect",
+  "categoryId": "network",
+  "order": 4,
+  "title": "Banner Connection",
+  "situation": "Connect to a runner-created TCP service and print the banner it sends.",
+  "description": "Connect to a runner-created TCP service and print the banner it sends.",
+  "command": {
+    "template": "python3 script.py <command> [arguments]",
+    "format": "python3 script.py portConnect <host:port>",
+    "parameters": [
+      {
+        "name": "host:port",
+        "value": "127.0.0.1:<dynamic>",
+        "description": "Runner-created banner service."
+      }
+    ]
+  },
+  "expectedOutput": "C3T challenge service",
+  "runner": {
+    "executable": "python3",
+    "args": [
+      "script.py",
+      "portConnect",
+      "127.0.0.1:{servicePort}"
+    ],
+    "installRequirements": false,
+    "prepare": "banner-service",
+    "outputSeeds": []
+  },
+  "environmentNotes": [],
+  "resources": [
+    {
+      "title": "Python docs: socket",
+      "url": "https://docs.python.org/3/library/socket.html"
+    },
+    {
+      "title": "W3Schools: Python Try/Except",
+      "url": "https://www.w3schools.com/python/python_try_except.asp"
+    }
+  ]
+}

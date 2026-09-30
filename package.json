@@ -1,0 +1,25 @@
+{
+  "name": "obsidian-runner",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A guided, Git-backed Python red-team classroom runner.",
+  "type": "module",
+  "scripts": {
+    "challenges:generate": "node scripts/generate-challenges.js",
+    "dev": "node --watch server/index.js",
+    "start": "node server/index.js",
+    "test": "node --test",
+    "docker:build": "node scripts/docker-task.js build",
+    "docker:lab": "node scripts/docker-task.js lab",
+    "docker:verify": "node scripts/docker-task.js verify",
+    "docker:down": "node scripts/docker-task.js down",
+    "lab:setup": "node scripts/setup-lab.js --start"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "dependencies": {
+    "express": "^5.1.0",
+    "socket.io": "^4.8.1"
+  }
+}

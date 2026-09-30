@@ -1,0 +1,35 @@
+{
+  "id": "12-hostname",
+  "categoryId": "system",
+  "order": 2,
+  "title": "Hostname",
+  "situation": "Print the machine hostname.",
+  "description": "Print the machine hostname.",
+  "command": {
+    "template": "python3 script.py <command> [arguments]",
+    "format": "python3 script.py hostname",
+    "parameters": []
+  },
+  "expectedOutput": "The lab runner hostname.",
+  "runner": {
+    "executable": "python3",
+    "args": [
+      "script.py",
+      "hostname"
+    ],
+    "installRequirements": false,
+    "prepare": null,
+    "outputSeeds": []
+  },
+  "environmentNotes": [],
+  "resources": [
+    {
+      "title": "Python docs: socket",
+      "url": "https://docs.python.org/3/library/socket.html"
+    },
+    {
+      "title": "Python docs: platform",
+      "url": "https://docs.python.org/3/library/platform.html"
+    }
+  ]
+}

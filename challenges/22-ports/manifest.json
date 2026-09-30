@@ -1,0 +1,35 @@
+{
+  "id": "22-ports",
+  "categoryId": "network",
+  "order": 2,
+  "title": "Listening Ports",
+  "situation": "List local listening ports and identify the disposable service started inside this level's isolated lab.",
+  "description": "List local listening ports and identify the disposable service started inside this level's isolated lab.",
+  "command": {
+    "template": "python3 script.py <command> [arguments]",
+    "format": "python3 script.py ports",
+    "parameters": []
+  },
+  "expectedOutput": "Listening TCP/UDP endpoints, including the runner-created TCP service.",
+  "runner": {
+    "executable": "python3",
+    "args": [
+      "script.py",
+      "ports"
+    ],
+    "installRequirements": false,
+    "prepare": "banner-service",
+    "outputSeeds": []
+  },
+  "environmentNotes": [],
+  "resources": [
+    {
+      "title": "psutil documentation",
+      "url": "https://psutil.io/"
+    },
+    {
+      "title": "Python docs: socket",
+      "url": "https://docs.python.org/3/library/socket.html"
+    }
+  ]
+}

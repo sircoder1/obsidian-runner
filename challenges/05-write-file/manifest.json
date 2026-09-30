@@ -1,0 +1,48 @@
+{
+  "id": "05-write-file",
+  "categoryId": "files",
+  "order": 3,
+  "title": "Write a File",
+  "situation": "Create a text file in the published output folder.",
+  "description": "Create a text file in the published output folder.",
+  "command": {
+    "template": "python3 script.py <command> [arguments]",
+    "format": "python3 script.py writeFile <filename> <text>",
+    "parameters": [
+      {
+        "name": "filename",
+        "value": "$LAB_OUTPUT/created.txt",
+        "description": "Published job output path."
+      },
+      {
+        "name": "text",
+        "value": "Created by Obsidian Runner",
+        "description": "Text to write."
+      }
+    ]
+  },
+  "expectedOutput": "A success message and created.txt in the output folder.",
+  "runner": {
+    "executable": "python3",
+    "args": [
+      "script.py",
+      "writeFile",
+      "{output}/created.txt",
+      "Created by Obsidian Runner"
+    ],
+    "installRequirements": false,
+    "prepare": null,
+    "outputSeeds": []
+  },
+  "environmentNotes": [],
+  "resources": [
+    {
+      "title": "W3Schools: Python File Write",
+      "url": "https://www.w3schools.com/python/python_file_write.asp"
+    },
+    {
+      "title": "Python docs: pathlib",
+      "url": "https://docs.python.org/3/library/pathlib.html"
+    }
+  ]
+}

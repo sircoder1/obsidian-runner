@@ -1,0 +1,48 @@
+{
+  "id": "25-download",
+  "categoryId": "network",
+  "order": 5,
+  "title": "HTTP Download",
+  "situation": "Download a runner-provided JSON document into the published output folder.",
+  "description": "Download a runner-provided JSON document into the published output folder.",
+  "command": {
+    "template": "python3 script.py <command> [arguments]",
+    "format": "python3 script.py download <sourceURL> <pathToSave>",
+    "parameters": [
+      {
+        "name": "sourceURL",
+        "value": "Runner-created local URL",
+        "description": "Disposable HTTP endpoint available only inside this job."
+      },
+      {
+        "name": "pathToSave",
+        "value": "$LAB_OUTPUT/health.json",
+        "description": "Published output path."
+      }
+    ]
+  },
+  "expectedOutput": "A download confirmation and health.json artifact.",
+  "runner": {
+    "executable": "python3",
+    "args": [
+      "script.py",
+      "download",
+      "{downloadUrl}",
+      "{output}/health.json"
+    ],
+    "installRequirements": false,
+    "prepare": "download-service",
+    "outputSeeds": []
+  },
+  "environmentNotes": [],
+  "resources": [
+    {
+      "title": "Python docs: urllib.request",
+      "url": "https://docs.python.org/3/library/urllib.request.html"
+    },
+    {
+      "title": "W3Schools: Python File Write",
+      "url": "https://www.w3schools.com/python/python_file_write.asp"
+    }
+  ]
+}

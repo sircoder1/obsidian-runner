@@ -1,0 +1,42 @@
+{
+  "id": "28-hash-file",
+  "categoryId": "data",
+  "order": 2,
+  "title": "Hash a File",
+  "situation": "Calculate a streaming SHA-256 digest for an instructor-provided file.",
+  "description": "Calculate a streaming SHA-256 digest for an instructor-provided file.",
+  "command": {
+    "template": "python3 script.py <command> [arguments]",
+    "format": "python3 script.py hashFile <file>",
+    "parameters": [
+      {
+        "name": "file",
+        "value": "$LAB_CHALLENGE_DIR/evidence.bin",
+        "description": "File to hash."
+      }
+    ]
+  },
+  "expectedOutput": "The file's SHA-256 hexadecimal digest.",
+  "runner": {
+    "executable": "python3",
+    "args": [
+      "script.py",
+      "hashFile",
+      "{challenge}/evidence.bin"
+    ],
+    "installRequirements": false,
+    "prepare": null,
+    "outputSeeds": []
+  },
+  "environmentNotes": [],
+  "resources": [
+    {
+      "title": "Python docs: hashlib",
+      "url": "https://docs.python.org/3/library/hashlib.html"
+    },
+    {
+      "title": "W3Schools: Python File Handling",
+      "url": "https://www.w3schools.com/python/python_file_handling.asp"
+    }
+  ]
+}

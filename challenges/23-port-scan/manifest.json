@@ -1,0 +1,48 @@
+{
+  "id": "23-port-scan",
+  "categoryId": "network",
+  "order": 3,
+  "title": "Single-Port Scan",
+  "situation": "Test a runner-created TCP service using a host and port.",
+  "description": "Test a runner-created TCP service using a host and port.",
+  "command": {
+    "template": "python3 script.py <command> [arguments]",
+    "format": "python3 script.py portScan <host> <port>",
+    "parameters": [
+      {
+        "name": "host",
+        "value": "127.0.0.1",
+        "description": "Local challenge service."
+      },
+      {
+        "name": "port",
+        "value": "Dynamically assigned",
+        "description": "Open TCP port supplied by the runner."
+      }
+    ]
+  },
+  "expectedOutput": "The supplied port is reported open.",
+  "runner": {
+    "executable": "python3",
+    "args": [
+      "script.py",
+      "portScan",
+      "127.0.0.1",
+      "{servicePort}"
+    ],
+    "installRequirements": false,
+    "prepare": "banner-service",
+    "outputSeeds": []
+  },
+  "environmentNotes": [],
+  "resources": [
+    {
+      "title": "Python docs: socket",
+      "url": "https://docs.python.org/3/library/socket.html"
+    },
+    {
+      "title": "W3Schools: Python Try/Except",
+      "url": "https://www.w3schools.com/python/python_try_except.asp"
+    }
+  ]
+}

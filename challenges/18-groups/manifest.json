@@ -1,0 +1,35 @@
+{
+  "id": "18-groups",
+  "categoryId": "system",
+  "order": 8,
+  "title": "Group Membership",
+  "situation": "List groups for the current account.",
+  "description": "List groups for the current account.",
+  "command": {
+    "template": "python3 script.py <command> [arguments]",
+    "format": "python3 script.py groups",
+    "parameters": []
+  },
+  "expectedOutput": "Current account group memberships.",
+  "runner": {
+    "executable": "python3",
+    "args": [
+      "script.py",
+      "groups"
+    ],
+    "installRequirements": false,
+    "prepare": null,
+    "outputSeeds": []
+  },
+  "environmentNotes": [],
+  "resources": [
+    {
+      "title": "Python docs: grp",
+      "url": "https://docs.python.org/3/library/grp.html"
+    },
+    {
+      "title": "Python docs: os",
+      "url": "https://docs.python.org/3/library/os.html"
+    }
+  ]
+}

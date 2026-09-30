@@ -1,0 +1,48 @@
+{
+  "id": "08-find",
+  "categoryId": "files",
+  "order": 6,
+  "title": "Recursive Find",
+  "situation": "Recursively find files whose names partially match the supplied text.",
+  "description": "Recursively find files whose names partially match the supplied text.",
+  "command": {
+    "template": "python3 script.py <command> [arguments]",
+    "format": "python3 script.py find <filename> <folder>",
+    "parameters": [
+      {
+        "name": "filename",
+        "value": "config",
+        "description": "Partial filename match."
+      },
+      {
+        "name": "folder",
+        "value": "$LAB_CHALLENGE_DIR",
+        "description": "Search root."
+      }
+    ]
+  },
+  "expectedOutput": "Paths for config.json and config.old.",
+  "runner": {
+    "executable": "python3",
+    "args": [
+      "script.py",
+      "find",
+      "config",
+      "{challenge}"
+    ],
+    "installRequirements": false,
+    "prepare": null,
+    "outputSeeds": []
+  },
+  "environmentNotes": [],
+  "resources": [
+    {
+      "title": "Python docs: pathlib",
+      "url": "https://docs.python.org/3/library/pathlib.html"
+    },
+    {
+      "title": "Python docs: os",
+      "url": "https://docs.python.org/3/library/os.html"
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "id": "16-process-kill",
+  "categoryId": "system",
+  "order": 6,
+  "title": "Terminate a Process",
+  "situation": "Terminate the disposable helper process created specifically for this level.",
+  "description": "Terminate the disposable helper process created specifically for this level.",
+  "command": {
+    "template": "python3 script.py <command> [arguments]",
+    "format": "python3 script.py processKill <PID>",
+    "parameters": [
+      {
+        "name": "PID",
+        "value": "Runner-created disposable PID",
+        "description": "A safe helper process created for this job."
+      }
+    ]
+  },
+  "expectedOutput": "Confirmation that the disposable helper process was terminated.",
+  "runner": {
+    "executable": "python3",
+    "args": [
+      "script.py",
+      "processKill",
+      "{helperPid}"
+    ],
+    "installRequirements": false,
+    "prepare": "sleeping-process",
+    "outputSeeds": []
+  },
+  "environmentNotes": [],
+  "resources": [
+    {
+      "title": "psutil documentation",
+      "url": "https://psutil.io/"
+    },
+    {
+      "title": "Python docs: signal",
+      "url": "https://docs.python.org/3/library/signal.html"
+    }
+  ]
+}

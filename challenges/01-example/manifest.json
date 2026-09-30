@@ -1,0 +1,35 @@
+{
+  "id": "01-example",
+  "categoryId": "foundations",
+  "order": 1,
+  "title": "Hello World",
+  "situation": "Add the first command and verify that the CLI dispatches correctly.",
+  "description": "Add the first command and verify that the CLI dispatches correctly.",
+  "command": {
+    "template": "python3 script.py <command> [arguments]",
+    "format": "python3 script.py example",
+    "parameters": []
+  },
+  "expectedOutput": "Hello World",
+  "runner": {
+    "executable": "python3",
+    "args": [
+      "script.py",
+      "example"
+    ],
+    "installRequirements": false,
+    "prepare": null,
+    "outputSeeds": []
+  },
+  "environmentNotes": [],
+  "resources": [
+    {
+      "title": "W3Schools: Python print()",
+      "url": "https://www.w3schools.com/python/ref_func_print.asp"
+    },
+    {
+      "title": "W3Schools: Python Functions",
+      "url": "https://www.w3schools.com/python/python_functions.asp"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "id": "19-env",
+  "categoryId": "system",
+  "order": 9,
+  "title": "Environment",
+  "situation": "List environment variable names and values visible to the tool.",
+  "description": "List environment variable names and values visible to the tool.",
+  "command": {
+    "template": "python3 script.py <command> [arguments]",
+    "format": "python3 script.py env",
+    "parameters": []
+  },
+  "expectedOutput": "Sorted NAME=value environment lines, including LAB_* values.",
+  "runner": {
+    "executable": "python3",
+    "args": [
+      "script.py",
+      "env"
+    ],
+    "installRequirements": false,
+    "prepare": null,
+    "outputSeeds": []
+  },
+  "environmentNotes": [],
+  "resources": [
+    {
+      "title": "Python docs: os",
+      "url": "https://docs.python.org/3/library/os.html"
+    },
+    {
+      "title": "W3Schools: Python Dictionaries",
+      "url": "https://www.w3schools.com/python/python_dictionaries.asp"
+    }
+  ]
+}

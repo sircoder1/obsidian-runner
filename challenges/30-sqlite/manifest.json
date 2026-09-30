@@ -1,0 +1,48 @@
+{
+  "id": "30-sqlite",
+  "categoryId": "data",
+  "order": 4,
+  "title": "SQLite Query",
+  "situation": "Run a read-only query against the supplied SQLite database.",
+  "description": "Run a read-only query against the supplied SQLite database.",
+  "command": {
+    "template": "python3 script.py <command> [arguments]",
+    "format": "python3 script.py sqlite <filePath> <command>",
+    "parameters": [
+      {
+        "name": "filePath",
+        "value": "$LAB_CHALLENGE_DIR/inventory.db",
+        "description": "Instructor SQLite database."
+      },
+      {
+        "name": "command",
+        "value": "SELECT id, hostname, role FROM hosts ORDER BY id",
+        "description": "SQL statement."
+      }
+    ]
+  },
+  "expectedOutput": "Three host inventory rows.",
+  "runner": {
+    "executable": "python3",
+    "args": [
+      "script.py",
+      "sqlite",
+      "{challenge}/inventory.db",
+      "SELECT id, hostname, role FROM hosts ORDER BY id"
+    ],
+    "installRequirements": false,
+    "prepare": null,
+    "outputSeeds": []
+  },
+  "environmentNotes": [],
+  "resources": [
+    {
+      "title": "Python docs: sqlite3",
+      "url": "https://docs.python.org/3/library/sqlite3.html"
+    },
+    {
+      "title": "W3Schools: Python Try/Except",
+      "url": "https://www.w3schools.com/python/python_try_except.asp"
+    }
+  ]
+}
