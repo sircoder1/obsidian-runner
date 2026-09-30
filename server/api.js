@@ -7,6 +7,7 @@ import { listArtifacts, startJob } from "./runner.js";
 import { createJob, createParticipant, getJob, getParticipant } from "./store.js";
 import {
   displayRepoUrl,
+  InputError,
   normalizeArtifactPath,
   normalizeGitHubRepoUrl,
   normalizeStudentName,
@@ -52,7 +53,7 @@ export function createApi(io) {
       const participant = await createParticipant({ name, repoUrl });
       res.status(201).json({ ...participant, repoUrl: displayRepoUrl(participant.repoUrl) });
     } catch (error) {
-      if (error instanceof TypeError || error.message?.includes("Enter") || error.message?.includes("GitHub") || error.message?.includes("Name") || error.message?.includes("Repository")) {
+      if (error instanceof InputError) {
         return fail(res, 400, error.message);
       }
       next(error);
@@ -122,6 +123,7 @@ export function createApi(io) {
       res.sendFile(absolute);
     } catch (error) {
       if (error.code === "ENOENT") return fail(res, 404, "Artifact not found.");
+      if (error instanceof InputError) return fail(res, 400, error.message);
       next(error);
     }
   });
