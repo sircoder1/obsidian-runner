@@ -158,9 +158,21 @@ async function createRuntime(level) {
   return runtime;
 }
 
-async function seedChallenge(level, challengeDir, outputDir) {
+export async function seedChallenge(level, challengeDir, outputDir) {
   const source = path.join(level.directory, "environment");
-  await fs.cp(source, challengeDir, { recursive: true, force: true });
+  await fs.mkdir(challengeDir, { recursive: true });
+
+  try {
+    const sourceInfo = await fs.stat(source);
+    if (!sourceInfo.isDirectory()) throw new Error(`Challenge environment is not a directory: ${source}`);
+    await fs.cp(source, challengeDir, { recursive: true, force: true });
+  } catch (error) {
+    if (error.code !== "ENOENT") throw error;
+    if ((level.runner.outputSeeds ?? []).length > 0) {
+      throw new Error(`Challenge ${level.id} requires seeded files, but its environment folder is missing.`);
+    }
+  }
+
   for (const relativePath of level.runner.outputSeeds ?? []) {
     const sourceFile = path.resolve(challengeDir, relativePath);
     const destination = path.resolve(outputDir, relativePath);
@@ -379,12 +391,13 @@ export function startJob({ io, jobId, level = null }) {
     const repoDir = path.join(jobDir, "repo");
     const outputDir = path.join(jobDir, "output");
     const challengeDir = path.join(jobDir, "challenge");
-    await fs.mkdir(outputDir, { recursive: true });
-    if (job.mode === "docker") await fs.chmod(outputDir, 0o777);
-    if (level) await seedChallenge(level, challengeDir, outputDir);
-    const stopMonitor = startArtifactMonitor(io, job.id, outputDir);
+    let stopMonitor = () => {};
 
     try {
+      await fs.mkdir(outputDir, { recursive: true });
+      if (job.mode === "docker") await fs.chmod(outputDir, 0o777);
+      if (level) await seedChallenge(level, challengeDir, outputDir);
+      stopMonitor = startArtifactMonitor(io, job.id, outputDir);
       await updateJob(job.id, { status: "running", startedAt: new Date().toISOString() });
       io.to(`job:${job.id}`).emit("job:status", getJob(job.id));
       const result = job.mode === "preview"
