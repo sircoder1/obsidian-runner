@@ -134,7 +134,7 @@ async function executePreview(io, job, level, outputDir) {
     path.join(outputDir, "runner-preview.json"),
     `${JSON.stringify({ jobId: job.id, levelId: level?.id ?? null, command: level?.command?.format ?? null, status: "ready" }, null, 2)}\n`,
   );
-  recordLog(io, job.id, "system", "Preview complete. Enable local runner mode on the Linux VM to execute the repository.\n");
+  recordLog(io, job.id, "system", "Preview complete. Run .\\setup.ps1 on Windows or sh setup.sh on Linux to configure Docker execution, then restart the website.\n");
   return { code: 0, commit: "preview" };
 }
 

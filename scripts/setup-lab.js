@@ -5,6 +5,7 @@ import { spawnSync } from "node:child_process";
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { dockerSetupEnv } from "./setup-env.js";
 
 const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const startAfterSetup = process.argv.includes("--start");
@@ -46,8 +47,16 @@ if (!fs.existsSync(envPath)) {
   fs.copyFileSync(path.join(projectRoot, ".env.docker.example"), envPath);
   console.log("Created .env with safe Docker-runner defaults.");
 } else {
-  console.log("Keeping the existing .env file.");
+  const existing = fs.readFileSync(envPath, "utf8");
+  const configured = dockerSetupEnv(existing);
+  if (configured !== existing) fs.writeFileSync(envPath, configured, "utf8");
+  console.log("Configured Docker execution in .env; keeping other settings.");
 }
+
+// Explicit setup also wins over stale runner settings inherited from the shell.
+process.env.RUNNER_MODE = "docker";
+process.env.ALLOW_LOCAL_EXECUTION = "false";
+process.env.ALLOW_DOCKER_EXECUTION = "true";
 
 runNpm("Install exact Node dependencies", ["ci"]);
 runNpm("Run application tests", ["test"]);

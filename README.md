@@ -30,7 +30,7 @@ sh setup.sh
 
 The setup script creates a Docker-mode `.env` when needed, installs the locked Node dependencies, runs tests, builds the disposable runner, starts the private SSH lab, verifies the complete Docker environment, and starts the website. Open `http://127.0.0.1:4173`. Stop the website with `Ctrl+C`; stop the background lab service with `npm run docker:down`.
 
-Setup is idempotent: rerun the same script after pulling updates. Existing `.env` settings are preserved.
+Setup is idempotent: rerun the same script after pulling updates. Setup always configures Docker execution, including when an existing `.env` uses preview or local mode. It sets `RUNNER_MODE=docker`, `ALLOW_DOCKER_EXECUTION=true`, and `ALLOW_LOCAL_EXECUTION=false`, while preserving other settings such as the port and Docker resource limits. To intentionally use preview mode, edit `.env` after setup and start the website with `npm start`.
 
 ## What is implemented
 
